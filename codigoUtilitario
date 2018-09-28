@@ -1,0 +1,20 @@
+para reparo de todos os app nativos do w10:
+
+-->> Get-AppXPackage | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\AppXManifest.xml”}
+_________________________________________________________________________________________________________________________________________________________________
+-->> para listar os app instalados:
+
+MicrosoftStickyNotes
+_______________________________________________________________________________________________________________________________________________________________
+-->>Remover app especifico:
+
+Get-AppxPackage *BOTE AKI O NOME DO APP * | Remove-AppxPackage
+____________________________________________________________________________________________________________________________________________________________
+-->> comando para instalar somente caculadora
+Get-AppxPackage -allusers *windowscalculator* | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\AppXManifest.xml”}
+__________________________________________________________________________________________________________________________________________________________
+-->>desinstalando o Stickynotes:
+Get-AppxPackage *MicrosoftStickyNotes* | Remove-AppxPackage
+__________________________________________________________________________________________________________________________________________________________
+-->>reinstalando o Stickynotes:
+Get-AppxPackage -allusers *MicrosoftStickyNotes* | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\AppXManifest.xml”}
